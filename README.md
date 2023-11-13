@@ -1,11 +1,23 @@
-# Scratch Crossplane configuration
+# Application Workspace Provisioning
 
-This repository defines a "scratch" (or empty) [Crossplane configuration](https://docs.crossplane.io/v1.11/concepts/packages/#configuration-packages). This configuration is a starting point for users in [Upbound](https://console.upbound.io).
+This example demonstrates using Upbound to provision workspaces into a workload cluster and deploy applications into it. Example deployments can be found in the [`.up/examples`](.up/examples/) folder.
 
-## What's Inside
+## Available APIs
 
-A Crossplane configuration bundles a set of APIs. The [crossplane.yaml](https://github.com/upbound/configuration-scratch/blob/main/crossplane.yaml) is the definition file for a configuration. This configuration has no APIs defined because it is from scratch.
+This repository implements Compositions for EKS Clusters, Application Deployments, and Team Setups.
 
-## Next Steps
+- `Cluster.aws.caas.upbound.io`
+    - Provision/Manage an EKS Cluster
 
-This repository is a starting point. You can start by creating new API definitions in this repo. Upbound will automatically detect the commits you make in your repo and build the configuration package for you. To learn more about how to build APIs for your managed control planes in Upbound, read the guide on [Upbound's docs](https://docs.upbound.io).
+- `App.example.upbound.io`
+    - Provision a Namespace into the target Cluster and register an ArgoCD Application targeting that Namespace
+
+- `Team.example.upbound.io`
+    - WIP; Provision a new Group within GitLab and assign LDAP groups to the key access roles
+
+
+The [`apis`](apis/)
+folder has the CompositeResourceDefinitons (XRDs) that define the schemas for
+the APIs.
+
+Once you clone the repository, you can modify the included compositions to fit your organizations needs.
